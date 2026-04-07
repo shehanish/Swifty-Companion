@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct Swifty_CompanionApp: App {
+ 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //if authManager.isAuthenticated {
+            // ContentView()
+            //} else {
+            LoginView()
+        //}
+
         }
     }
 }
