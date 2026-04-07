@@ -12,7 +12,9 @@ An elegant iOS application built to navigate the 42 Network ecosystem. This app 
 
 ## Screenshot
 
-![Swifty-Companion screenshot](Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202026-04-07%20at%2018.47.41.png)
+<p align="center">
+       <img src="Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202026-04-07%20at%2018.47.41.png" alt="Swifty-Companion screenshot" width="260" />
+</p>
 
 ---
 
