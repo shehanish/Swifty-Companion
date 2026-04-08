@@ -1,53 +1,47 @@
 # Swifty-Companion
 
-A native iOS application built with Swift 6 and SwiftUI to interact with the 42 Network API. It features OAuth2 authentication, real-time peer searching, and dynamic progress visualization.
-
-# 42 Swifty-Companion 📱
-
 [![Swift 6.0](https://img.shields.io/badge/Swift-6.0-orange.svg)](https://swift.org)
 [![Platform](https://img.shields.io/badge/Platform-iOS%2017%2B-blue.svg)](https://developer.apple.com/ios/)
 [![Architecture](https://img.shields.io/badge/Architecture-MVVM-green.svg)](#architecture)
 
-An elegant iOS application built to navigate the 42 Network ecosystem. This app allows users to search for peers, visualize their progress, and track skill evolution using the 42 OAuth2 API.
+Swifty-Companion is a native iOS app built with Swift 6 and SwiftUI for exploring the 42 Network API. It includes OAuth 2.0 authentication, peer search, skill visualization, and project tracking.
 
-## Latest Updates
+## What's New
 
-- Added OAuth 2.0 authentication flow for secure 42 Intra login.
-- Organized README screenshots into `Documentation/Images` for cleaner project assets.
-- Included the latest simulator captures to reflect the current UI state.
+- Added OAuth 2.0 authentication for secure 42 Intra login.
+- Refined the login flow and app configuration.
+- Moved simulator screenshots into `Documentation/Images` to keep the repository tidy.
+- Updated the README with the latest UI captures and project changes.
 
-## Screenshot
+## Screenshots
 
 <p align="center">
-       <img src="Documentation/Images/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202026-04-08%20at%2018.30.07.png" alt="Swifty-Companion screenshot 1" width="260" />
-       <img src="Documentation/Images/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202026-04-08%20at%2018.30.25.png" alt="Swifty-Companion screenshot 2" width="260" />
+  <img src="Documentation/Images/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202026-04-08%20at%2018.30.07.png" alt="Swifty-Companion screenshot showing the profile view" width="320" />
+  <img src="Documentation/Images/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202026-04-08%20at%2018.30.25.png" alt="Swifty-Companion screenshot showing the search and profile UI" width="320" />
 </p>
 
----
+## Features
 
-## 🚀 Features
+- OAuth 2.0 authentication with 42 Intra
+- Peer search across the 42 network
+- User profile visualization with level, correction points, and wallet
+- Dynamic skill bars and project history
+- Native SwiftUI UI with dark mode support
 
-- **OAuth2 Authentication:** Secure login flow integrated with the 42 Intra.
-- **Peer Search:** Real-time search functionality for any student in the network.
-- **Profile Visualization:** User info (Level, Correction Points, Wallet), dynamic skill bars, and project history with status filtering.
-- **Dark Mode Support:** Native SwiftUI implementation for a sleek look.
+## Tech Stack
 
----
+- Swift 6
+- SwiftUI
+- URLSession networking
+- Keychain for secure token storage
+- Kingfisher for profile image loading
 
-## 🛠 Tech Stack & Architecture
+## Architecture
 
-This project follows the **MVVM (Model-View-ViewModel)** pattern to ensure a clean separation of concerns and testability.
-
-- **Language:** Swift 6 (Strict Concurrency enabled)
-- **UI Framework:** SwiftUI
-- **Networking:** URLSession (Native) or Alamofire
-- **Image Caching:** Kingfisher (for optimized profile picture loading)
-- **Local Storage:** Keychain (for secure token management)
-
-### Architecture Diagram
+This project follows the MVVM pattern for a clean separation of concerns.
 
 ```text
 View (SwiftUI) <--> ViewModel (State/Logic) <--> Model (API Data)
-                          |
-                   Network Service (OAuth2)
+                         |
+                  Network Service (OAuth2)
 ```
