@@ -8,17 +8,27 @@
 
 /* Begin PBXFileReference section */
 		0C1F22052F6DAA640042AF64 /* Swifty Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C95AD132F85954E00F6694F /* Swifty Companion.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "Swifty Companion.xcodeproj"; sourceTree = "<group>"; };
+		0C95AD292F86ACDF00F6694F /* Swifty-Companion-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Swifty-Companion-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		0C1F22072F6DAA640042AF64 /* Swifty Companion */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Swifty Companion";
-			sourceTree = "<group>";
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		0C95AD2C2F86AF9F00F6694F /* Exceptions for "." folder in "Swifty Companion" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Swifty-Companion-Info.plist",
+			);
+			target = 0C1F22042F6DAA640042AF64 /* Swifty Companion */;
 		};
-		0C414A3E2F71A58900670BA4 /* Services */ = {
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		0C1F22072F6DAA640042AF64 /* . */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Services;
+			exceptions = (
+				0C95AD2C2F86AF9F00F6694F /* Exceptions for "." folder in "Swifty Companion" target */,
+			);
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -37,9 +47,9 @@
 		0C1F21FC2F6DAA640042AF64 = {
 			isa = PBXGroup;
 			children = (
-				0C1F22072F6DAA640042AF64 /* Swifty Companion */,
+				0C95AD292F86ACDF00F6694F /* Swifty-Companion-Info.plist */,
+				0C1F22072F6DAA640042AF64 /* . */,
 				0C1F22062F6DAA640042AF64 /* Products */,
-				0C414A3E2F71A58900670BA4 /* Services */,
 			);
 			sourceTree = "<group>";
 		};
@@ -48,6 +58,11 @@
 			children = (
 				0C1F22052F6DAA640042AF64 /* Swifty Companion.app */,
 			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0C95AD152F85954E00F6694F /* Products */ = {
+			isa = PBXGroup;
 			name = Products;
 			sourceTree = "<group>";
 		};
@@ -67,8 +82,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				0C1F22072F6DAA640042AF64 /* Swifty Companion */,
-				0C414A3E2F71A58900670BA4 /* Services */,
+				0C1F22072F6DAA640042AF64 /* . */,
 			);
 			name = "Swifty Companion";
 			packageProductDependencies = (
@@ -104,6 +118,12 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0C1F22062F6DAA640042AF64 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0C95AD152F85954E00F6694F /* Products */;
+					ProjectRef = 0C95AD132F85954E00F6694F /* Swifty Companion.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0C1F22042F6DAA640042AF64 /* Swifty Companion */,
@@ -262,9 +282,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Swifty Companion/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Swifty-Companion-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -290,9 +311,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Swifty Companion/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Swifty-Companion-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

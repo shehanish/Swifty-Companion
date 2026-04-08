@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var login: String = ""
+    @State private var authManager = AuthManager()
     
     var body: some View {
         VStack(spacing: 20) {
             // Avatar Icon
             Image(systemName: "person.circle.fill")
                 .font(.system(size: 80))
-                .foregroundColor(.blue)
+                .foregroundColor(.black)
             
             // Title and Subtitle
             Text("Log in to Continue")
@@ -30,35 +30,34 @@ struct LoginView: View {
             Spacer()
             
             // Login Button
-            Button(action: LogIn) {
-                Label("Continue with 42 Intra", systemImage: "arrow.right")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(10)
-                    .padding(.top, -100)
-            }
+            Button(action: {
+                            print("🔵 BUTTON TAPPED!")
+                            authManager.startLogin()
+                        }) {
+                            Label("Continue with 42 Intra", systemImage: "arrow.right")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.black) // Changed to blue so it matches your picture!
+                                .cornerRadius(10)
+                        }
             
             Spacer()
+                .padding()
+            
         }
         .padding()
         .padding(.top, 200)
         .background(Color.purple.opacity(0.10))
         .ignoresSafeArea()
     }
-        
-        
-}
     
     // MARK: - Methods
-    
     private func LogIn() {
-        // TODO: Implement sign in logic with 42 OAuth
-        print("Log In tapped")
+        authManager.startLogin()
     }
-    
+}
 
 #Preview {
     LoginView()
