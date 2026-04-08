@@ -10,10 +10,17 @@ A native iOS application built with Swift 6 and SwiftUI to interact with the 42 
 
 An elegant iOS application built to navigate the 42 Network ecosystem. This app allows users to search for peers, visualize their progress, and track skill evolution using the 42 OAuth2 API.
 
+## Latest Updates
+
+- Added OAuth 2.0 authentication flow for secure 42 Intra login.
+- Organized README screenshots into `Documentation/Images` for cleaner project assets.
+- Included the latest simulator captures to reflect the current UI state.
+
 ## Screenshot
 
 <p align="center">
-       <img src="Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202026-04-07%20at%2018.47.41.png" alt="Swifty-Companion screenshot" width="260" />
+       <img src="Documentation/Images/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202026-04-08%20at%2018.30.07.png" alt="Swifty-Companion screenshot 1" width="260" />
+       <img src="Documentation/Images/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202026-04-08%20at%2018.30.25.png" alt="Swifty-Companion screenshot 2" width="260" />
 </p>
 
 ---
