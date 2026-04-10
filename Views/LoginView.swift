@@ -7,24 +7,26 @@
 
 import SwiftUI
 
+let darkBlue = Color(red: 0.04, green: 0.15, blue: 0.33)
 struct LoginView: View {
-    @State private var authManager = AuthManager()
+    @ObservedObject var authManager: AuthManager
     
     var body: some View {
         VStack(spacing: 20) {
             // Avatar Icon
             Image(systemName: "person.circle.fill")
                 .font(.system(size: 80))
-                .foregroundColor(.black)
+                .foregroundColor(darkBlue)
             
             // Title and Subtitle
             Text("Log in to Continue")
                 .font(.title2)
+                .foregroundColor(darkBlue)
                 .fontWeight(.bold)
             
             Text("Access your 42 profile and explore your stats")
                 .font(.subheadline)
-                .foregroundColor(.gray)
+                .foregroundColor(darkBlue)
                 .multilineTextAlignment(.center)
             
             Spacer()
@@ -39,7 +41,7 @@ struct LoginView: View {
                                 .foregroundColor(.white)
                                 .frame(maxWidth: .infinity)
                                 .padding()
-                                .background(Color.black) // Changed to blue so it matches your picture!
+                                .background(darkBlue)
                                 .cornerRadius(10)
                         }
             
@@ -60,5 +62,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
+    LoginView(authManager: AuthManager())
 }

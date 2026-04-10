@@ -7,4 +7,11 @@
 
 import Foundation
 
-// Add your code here
+struct IntraUser: Codable {
+    let login: String
+    let image: IntraImage?
+}
+
+struct IntraImage: Codable {
+    let link: String?
+}

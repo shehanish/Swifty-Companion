@@ -9,15 +9,18 @@ import SwiftUI
 
 @main
 struct Swifty_CompanionApp: App {
- 
+    // Create ONE AuthManager for the whole app
+    @StateObject var authManager = AuthManager()
+    
     var body: some Scene {
         WindowGroup {
-            //if authManager.isAuthenticated {
-            // ContentView()
-            //} else {
-            LoginView()
-        //}
-
+            if authManager.isAuthenticated {
+                // Pass the manager into ContentView
+                ContentView(authManager: authManager)
+            } else {
+                // Pass the manager into LoginView
+                LoginView(authManager: authManager)
+            }
         }
     }
 }
