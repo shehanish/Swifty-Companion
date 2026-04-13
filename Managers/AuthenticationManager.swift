@@ -21,6 +21,8 @@ class AuthManager: NSObject, ObservableObject, ASWebAuthenticationPresentationCo
     
     @Published var isAuthenticated = false
     @Published var loggedInUser: IntraUser?
+    @Published var searchedUser: IntraUser? // This will hold the peer we search for!
+    var accessToken: String? // We need to save the token here!
     
     // MARK: - Phase 1 & 2: Get the Code
     func startLogin() {
@@ -55,6 +57,7 @@ class AuthManager: NSObject, ObservableObject, ASWebAuthenticationPresentationCo
         
         // We set `self` as the helper, so it never disappears
         self.webAuthSession?.presentationContextProvider = self
+        self.webAuthSession?.prefersEphemeralWebBrowserSession = true
         self.webAuthSession?.start()
     }
     
@@ -86,6 +89,10 @@ class AuthManager: NSObject, ObservableObject, ASWebAuthenticationPresentationCo
            
             do {
                 let tokenResponse = try JSONDecoder().decode(TokenResponse.self, from: data)
+                
+                // Save it for later searches!
+                self.accessToken = tokenResponse.access_token
+                self.fetchMyProfile(token: tokenResponse.access_token)
                 
                 print("Token Decoded Successfully!")
                 
@@ -142,6 +149,17 @@ class AuthManager: NSObject, ObservableObject, ASWebAuthenticationPresentationCo
         }.resume()
     }
     
+    // MARK: - Phase 5: Log Out
+    func logout() {
+        DispatchQueue.main.async {
+            // 1. Delete the user profile from memory
+            self.loggedInUser = nil
+            // 2. Flip the boolean back to false (This instantly kicks them back to the Login screen!)
+            self.isAuthenticated = false
+        }
+        print("User signed out successfully.")
+    }
+    
     // MARK: - Helper Window Function
     func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
@@ -150,4 +168,50 @@ class AuthManager: NSObject, ObservableObject, ASWebAuthenticationPresentationCo
         }
         return window
     }
+    
+    // MARK: - Phase 6: Search For Peer
+    func searchForPeer(login: String, completion: @escaping (Bool) -> Void) {
+        guard let token = self.accessToken else {
+            completion(false)
+            return
+        }
+        
+        // Clean up the text (remove spaces, make it lowercase)
+        let cleanLogin = login.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        
+        // 🚨 THE NEW ENDPOINT: We put their name right in the URL!
+        let searchURL = URL(string: "https://api.intra.42.fr/v2/users/\(cleanLogin)")!
+        var request = URLRequest(url: searchURL)
+        request.httpMethod = "GET"
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            // Check if the server said "404 Not Found"
+            guard let data = data,
+                  let httpResponse = response as? HTTPURLResponse,
+                  httpResponse.statusCode == 200 else {
+                DispatchQueue.main.async {
+                    print("❌ User not found!")
+                    completion(false) // Tell the UI it failed
+                }
+                return
+            }
+            
+            do {
+                // We reuse your exact same IntraUser model!
+                let user = try JSONDecoder().decode(IntraUser.self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.searchedUser = user
+                    print("✅ Found peer: \(user.login)")
+                    completion(true) // Tell the UI it succeeded!
+                }
+            } catch {
+                print("❌ Failed to decode peer: \(error)")
+                DispatchQueue.main.async { completion(false) }
+            }
+        }.resume()
+    }
 }
+
+
