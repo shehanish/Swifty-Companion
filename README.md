@@ -13,12 +13,38 @@ Swifty-Companion is a native iOS app built with Swift 6 and SwiftUI for explorin
 - Moved simulator screenshots into `Documentation/Images` to keep the repository tidy.
 - Updated the README with the latest UI captures and project changes.
 
-## Screenshots
+## Application Steps & Screenshots
 
+### Step 1: Authentication
+Securely log in to the app using your 42 Intra credentials. The OAuth 2.0 flow ensures your data is protected.
 <p align="center">
-  <img src="Documentation/Images/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202026-04-08%20at%2018.30.07.png" alt="Swifty-Companion screenshot showing the profile view" width="320" />
-  <img src="Documentation/Images/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202026-04-08%20at%2018.30.25.png" alt="Swifty-Companion screenshot showing the search and profile UI" width="320" />
+  <img src="Documentation/Images/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%201.png" width="250" />
+  <img src="Documentation/Images/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202.png" width="250" />
 </p>
+
+### Step 2: Peer Search & Dashboard
+Once logged in, search the 42 network for specific peers to view their profile, level, and accomplishments.
+<p align="center">
+  <img src="Documentation/Images/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%203.png" width="250" />
+  <img src="Documentation/Images/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%204.png" width="250" />
+</p>
+
+### Step 3: Detailed Profile (Info, Projects, Skills)
+Explore the detailed profile view containing three tabs:
+- **Info:** Wallet, correction points, level, and contact details.
+- **Projects:** List of completed projects and their final marks.
+- **Skills:** Detailed visual breakdown of skill levels.
+<p align="center">
+  <img src="Documentation/Images/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%205.png" width="190" />
+  <img src="Documentation/Images/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%206.png" width="190" />
+  <img src="Documentation/Images/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%207.png" width="190" />
+</p>
+
+## Project Overview
+
+Swifty-Companion serves as an on-the-go utility designed specifically for students and alumni of the [42 Network](https://42.fr/en/homepage/). The project was created to provide a fast, native, and nicely designed iOS alternative to the web-based Intranet. 
+
+By integrating directly with the official 42 API, the app allows users to seamlessly retrieve their own statistics or search for peers. It breaks down complex data like ongoing and completed projects, curriculum levels, correction points, wallet balances, and overall skill progression over time into easy-to-read, digestible views. The application emphasizes clean architecture, robust state management, and modern design principles using native iOS tools.
 
 ## Features
 
