@@ -10,6 +10,7 @@
 		0C1F22052F6DAA640042AF64 /* Swifty Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C95AD132F85954E00F6694F /* Swifty Companion.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "Swifty Companion.xcodeproj"; sourceTree = "<group>"; };
 		0C95AD292F86ACDF00F6694F /* Swifty-Companion-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Swifty-Companion-Info.plist"; sourceTree = "<group>"; };
+		0CEF8BEE2F9BB1B8008FC6C9 /* Swifty Companion.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "Swifty Companion.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -62,6 +63,11 @@
 			sourceTree = "<group>";
 		};
 		0C95AD152F85954E00F6694F /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0CEF8BF12F9BB1B8008FC6C9 /* Products */ = {
 			isa = PBXGroup;
 			name = Products;
 			sourceTree = "<group>";
@@ -119,6 +125,10 @@
 			productRefGroup = 0C1F22062F6DAA640042AF64 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 0CEF8BF12F9BB1B8008FC6C9 /* Products */;
+					ProjectRef = 0CEF8BEE2F9BB1B8008FC6C9 /* Swifty Companion.xcodeproj */;
+				},
 				{
 					ProductGroup = 0C95AD152F85954E00F6694F /* Products */;
 					ProjectRef = 0C95AD132F85954E00F6694F /* Swifty Companion.xcodeproj */;

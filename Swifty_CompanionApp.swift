@@ -17,9 +17,11 @@ struct Swifty_CompanionApp: App {
             if authManager.isAuthenticated {
                 // Pass the manager into ContentView
                 ContentView(authManager: authManager)
+                    .preferredColorScheme(.light)
             } else {
                 // Pass the manager into LoginView
                 LoginView(authManager: authManager)
+                    .preferredColorScheme(.light)
             }
         }
     }

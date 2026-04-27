@@ -39,7 +39,7 @@ struct ContentView: View {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("Welcome, \(authManager.loggedInUser?.login ?? "Student!")")
                                 .font(.title2)
-                                .foregroundColor(navyBlue.opacity(3))
+                                .foregroundColor(navyBlue)
                         }
                         
                         Spacer()
@@ -170,6 +170,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(authManager: AuthManager())
+        let authManager = AuthManager()
+        ContentView(authManager: authManager)
     }
 }

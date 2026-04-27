@@ -12,24 +12,27 @@ struct LoginView: View {
     @ObservedObject var authManager: AuthManager
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 30) {
+            Spacer()
+            
             // Avatar Icon
             Image(systemName: "person.circle.fill")
                 .font(.system(size: 80))
                 .foregroundColor(darkBlue)
             
-            // Title and Subtitle
-            Text("Log in to Continue")
-                .font(.title2)
-                .foregroundColor(darkBlue)
-                .fontWeight(.bold)
-            
-            Text("Access your 42 profile and explore your stats")
-                .font(.subheadline)
-                .foregroundColor(darkBlue)
-                .multilineTextAlignment(.center)
-            
-            Spacer()
+            VStack(spacing: 8) {
+                // Title and Subtitle
+                Text("Log in to Continue")
+                    .font(.title2)
+                    .foregroundColor(darkBlue)
+                    .fontWeight(.bold)
+                
+                Text("Access your 42 profile and explore your stats")
+                    .font(.subheadline)
+                    .foregroundColor(darkBlue)
+                    .multilineTextAlignment(.center)
+            }
+            .padding(.bottom, 20)
             
             // Login Button
             Button(action: {
@@ -46,11 +49,8 @@ struct LoginView: View {
                         }
             
             Spacer()
-                .padding()
-            
         }
-        .padding()
-        .padding(.top, 200)
+        .padding(30)
         .background(Color.purple.opacity(0.10))
         .ignoresSafeArea()
     }

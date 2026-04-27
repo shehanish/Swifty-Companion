@@ -64,14 +64,24 @@ class AuthManager: NSObject, ObservableObject, ASWebAuthenticationPresentationCo
     // MARK: - Phase 3: Trade Code for Token
     private func exchangeCodeForToken(code: String) {
         print("Exchanging code for token...")
+       
         
         let tokenURL = URL(string: "https://api.intra.42.fr/oauth/token")!
         var request = URLRequest(url: tokenURL)
         request.httpMethod = "POST"
         
         // We are packing our UID, Secret, and Code into the body of the request
-        let bodyString = "grant_type=authorization_code&client_id=\(clientID)&client_secret=\(clientSecret)&code=\(code)&redirect_uri=\(redirectURI)"
-        request.httpBody = bodyString.data(using: .utf8)
+        // USING URLComponents TO PROPERLY PERCENT-ENCODE THE BODY
+        var components = URLComponents()
+        components.queryItems = [
+            URLQueryItem(name: "grant_type", value: "authorization_code"),
+            URLQueryItem(name: "client_id", value: clientID),
+            URLQueryItem(name: "client_secret", value: clientSecret),
+            URLQueryItem(name: "code", value: code),
+            URLQueryItem(name: "redirect_uri", value: redirectURI)
+        ]
+        
+        request.httpBody = components.query?.data(using: .utf8)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -213,5 +223,3 @@ class AuthManager: NSObject, ObservableObject, ASWebAuthenticationPresentationCo
         }.resume()
     }
 }
-
-
