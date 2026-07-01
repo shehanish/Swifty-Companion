@@ -22,6 +22,10 @@ Securely log in to the app using your 42 Intra credentials. The OAuth 2.0 flow e
   <img src="Documentation/Images/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202.png" width="250" />
 </p>
 
+<p align="center">
+  <img src="Documentation/Images/Simulator%20Screenshot.png" width="250" />
+</p>
+
 ### Step 2: Peer Search & Dashboard
 Once logged in, search the 42 network for specific peers to view their profile, level, and accomplishments.
 <p align="center">
