@@ -9,7 +9,8 @@ import SwiftUI
 
 let darkBlue = Color(red: 0.04, green: 0.15, blue: 0.33)
 struct LoginView: View {
-    @ObservedObject var authManager: AuthManager
+    @ObservedObject var authViewModel: AuthViewModel
+    @State private var showAuthErrorAlert = false
     
     var body: some View {
         VStack(spacing: 30) {
@@ -37,7 +38,7 @@ struct LoginView: View {
             // Login Button
             Button(action: {
                             print("🔵 BUTTON TAPPED!")
-                            authManager.startLogin()
+                            authViewModel.startLogin()
                         }) {
                             Label("Continue with 42 Intra", systemImage: "arrow.right")
                                 .font(.headline)
@@ -47,20 +48,36 @@ struct LoginView: View {
                                 .background(darkBlue)
                                 .cornerRadius(10)
                         }
+            .alert("Sign In Failed", isPresented: Binding(
+                get: { showAuthErrorAlert },
+                set: { newValue in
+                    showAuthErrorAlert = newValue
+                    if !newValue {
+                        authViewModel.authErrorMessage = nil
+                    }
+                }
+            )) {
+                Button("OK", role: .cancel) { }
+            } message: {
+                Text(authViewModel.authErrorMessage ?? "The app could not complete sign in.")
+            }
             
             Spacer()
         }
         .padding(30)
         .background(Color.purple.opacity(0.10))
         .ignoresSafeArea()
+        .onChange(of: authViewModel.authErrorMessage) { _, newValue in
+            showAuthErrorAlert = newValue != nil
+        }
     }
     
     // MARK: - Methods
     private func LogIn() {
-        authManager.startLogin()
+        authViewModel.startLogin()
     }
 }
 
 #Preview {
-    LoginView(authManager: AuthManager())
+    LoginView(authViewModel: AuthViewModel())
 }

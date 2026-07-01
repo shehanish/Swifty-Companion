@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PeerDetailsView: View {
-    @ObservedObject var authManager: AuthManager
+    @ObservedObject var authViewModel: AuthViewModel
     @Environment(\.dismiss) var dismiss
     
     let navyBlue = Color(red: 0.04, green: 0.15, blue: 0.33)
@@ -20,7 +20,7 @@ struct PeerDetailsView: View {
         ZStack {
             Color(UIColor.systemGroupedBackground).ignoresSafeArea()
             
-            if let user = authManager.searchedUser {
+            if let user = authViewModel.searchedUser {
                 VStack {
                     // MARK: - Top Header (Avatar, Name, Title)
                     VStack(spacing: 8) {
